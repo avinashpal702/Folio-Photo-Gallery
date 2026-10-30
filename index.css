@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-[#f7f6f2] text-stone-900 antialiased;
+  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+}
+
+::selection {
+  @apply bg-emerald-900 text-white;
+}
+
+.gallery-shell {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(225, 232, 219, 0.55), transparent 34rem),
+    #f7f6f2;
+}
+
+.brand-mark {
+  @apply flex h-9 w-9 items-center justify-center rounded-full bg-emerald-900 font-serif text-xl italic text-white;
+}
+
+.search-field {
+  @apply rounded-full border border-stone-300 bg-white/70 px-4 py-3 transition-colors focus-within:border-emerald-800;
+}
+
+.gallery-card {
+  min-width: 0;
+}
+
+.gallery-image-wrap {
+  @apply relative overflow-hidden rounded-xl bg-stone-200;
+  aspect-ratio: 4 / 3;
+}
+
+.gallery-image {
+  @apply h-full w-full object-cover;
+  transition: transform 500ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.gallery-card:hover .gallery-image {
+  transform: scale(1.045);
+}
+
+.image-index {
+  @apply absolute bottom-3 left-3 rounded-full bg-stone-950/55 px-3 py-1.5 text-[10px] font-medium tracking-[0.12em] text-white backdrop-blur;
+}
+
+.favourite-button {
+  @apply absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-stone-700 shadow-sm backdrop-blur transition duration-200 hover:scale-105 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800;
+}
+
+.favourite-button.is-favourite {
+  @apply text-emerald-800;
+}
+
+.gallery-spinner {
+  @apply h-9 w-9 animate-spin rounded-full border-2 border-stone-300 border-t-emerald-800;
+}
+
+.empty-state {
+  @apply flex min-h-56 flex-col items-center justify-center rounded-2xl border border-dashed border-stone-300 bg-white/40 text-center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
